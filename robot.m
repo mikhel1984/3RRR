@@ -26,7 +26,7 @@ link2.twist = 0;
 link3.type = 'P';
 link3.length = 30;
 link3.axis = [1 0 0];
-link3.twist = 0.523;
+link3.twist = pi+pi/6;
 
 link4.type = 'L';
 link4.length = 70;
@@ -41,7 +41,7 @@ link5.twist = 0;
 link6.type = 'P';
 link6.length = 30;
 link6.axis = [1 0 0];
-link6.twist = 0.523;
+link6.twist = -pi/6;
 
 link7.type = 'L';
 link7.length = 70;
@@ -56,7 +56,7 @@ link8.twist = 0;
 link9.type = 'P';
 link9.length = 30;
 link9.axis = [1 0 0];
-link9.twist = 0.523;
+link9.twist = pi/2;
 
 %%% Joint description
 % joint.type     - specify this part as a joint with 'P' or 'R' value

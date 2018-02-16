@@ -2,17 +2,17 @@ function q = IK(T,robot)
 % Inverse kinematics
 
    % joint coordinates at the platform
-   xA = -robot.Links(3).length*cos(robot.Links(3).twist+robot.plate_angle);
-   yA = -robot.Links(3).length*sin(robot.Links(3).twist+robot.plate_angle);
-   xB = robot.Links(6).length*cos(robot.Links(6).twist-robot.plate_angle);
-   yB = -robot.Links(6).length*sin(robot.Links(6).twist-robot.plate_angle);
-   xC = robot.Links(9).length*cos(robot.Links(9).twist+2*robot.Links(6).twist-robot.plate_angle);
-   yC = robot.Links(9).length*sin(robot.Links(9).twist+2*robot.Links(6).twist-robot.plate_angle);
+   xA = robot.Links(3).length*cos(robot.Links(3).twist+robot.plate_angle);
+   yA = robot.Links(3).length*sin(robot.Links(3).twist+robot.plate_angle);
+   xB = robot.Links(6).length*cos(robot.Links(6).twist+robot.plate_angle);
+   yB = robot.Links(6).length*sin(robot.Links(6).twist+robot.plate_angle);
+   xC = robot.Links(9).length*cos(robot.Links(9).twist+robot.plate_angle);
+   yC = robot.Links(9).length*sin(robot.Links(9).twist+robot.plate_angle);
    
    % rotation + translation
-   XA = T*[xA;yA;1];
-   XB = T*[xB;yB;1];
-   XC = T*[xC;yC;1];
+   XA = T*[xA;yA;0;1];
+   XB = T*[xB;yB;0;1];
+   XC = T*[xC;yC;0;1];
    % legs
    dA = XA(1:2) - robot.Joints(1).position(1:2);
    dB = XB(1:2) - robot.Joints(4).position(1:2);

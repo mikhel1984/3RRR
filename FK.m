@@ -1,4 +1,6 @@
-function visualisation(q,robot)
+function T = FK(q,robot)
+% Forward kinematics
+
    leg1 = zeros(3,2); leg2 = zeros(3,2); leg3 = zeros(3,2);
    % base
    leg1(1,:) = robot.Joints(1).position(1:2)';
@@ -22,9 +24,6 @@ function visualisation(q,robot)
    platform(2,:) = leg2(3,:);
    platform(3,:) = leg3(3,:);
    platform(4,:) = leg1(3,:);
-   
-   % show
-   plot(leg1(:,1),leg1(:,2),'r',leg2(:,1),leg2(:,2),'r',leg3(:,1),leg3(:,2),'r', platform(:,1),platform(:,2),'b');
    
    
    
