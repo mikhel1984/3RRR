@@ -23,9 +23,9 @@ function q = IK(T,robot)
    [q(4),q(5)] = solve2link(robot.Links(4).length, robot.Links(5).length, dB(1), dB(2), 1);
    [q(7),q(8)] = solve2link(robot.Links(7).length, robot.Links(8).length, dC(1), dC(2), -1);
    % last joints
-   tA = T(:,3) - XA;
-   tB = T(:,3) - XB;
-   tC = T(:,3) - XC;
+   tA = T(:,4) - XA;
+   tB = T(:,4) - XB;
+   tC = T(:,4) - XC;
    q(3) = atan2(tA(2),tA(1)) - q(1) - q(2);
    q(6) = atan2(tB(2),tB(1)) - q(4) - q(5);
    q(9) = atan2(tC(2),tC(1)) - q(7) - q(8);
