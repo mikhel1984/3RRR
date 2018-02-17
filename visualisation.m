@@ -24,7 +24,29 @@ function visualisation(q,robot)
    platform(4,:) = leg1(3,:);
    
    % show
-   plot(leg1(:,1),leg1(:,2),'r',leg2(:,1),leg2(:,2),'r',leg3(:,1),leg3(:,2),'r', platform(:,1),platform(:,2),'b');
+   plot(leg1(:,1),leg1(:,2),'r',leg2(:,1),leg2(:,2),'r',leg3(:,1),leg3(:,2),'r');
+   xlabel('x'); ylabel('y');
+   title('3RRR');
+   % leg 1
+   rectangle('Position',[leg1(1,:)-3,6,6],'Curvature',1);
+   rectangle('Position',[leg1(2,:)-3,6,6],'Curvature',1);
+   rectangle('Position',[leg1(3,:)-3,6,6],'Curvature',1);
+   % leg 2
+   rectangle('Position',[leg2(1,:)-3,6,6],'Curvature',1);
+   rectangle('Position',[leg2(2,:)-3,6,6],'Curvature',1);
+   rectangle('Position',[leg2(3,:)-3,6,6],'Curvature',1);
+   % leg 3
+   rectangle('Position',[leg3(1,:)-3,6,6],'Curvature',1);
+   rectangle('Position',[leg3(2,:)-3,6,6],'Curvature',1);
+   rectangle('Position',[leg3(3,:)-3,6,6],'Curvature',1);
+   % base
+   line([leg1(1,1)-10,leg1(1,1)+10],[leg1(1,2),leg1(1,2)],'Color','k','LineWidth',2);
+   line([leg2(1,1)-10,leg2(1,1)+10],[leg2(1,2),leg2(1,2)],'Color','k','LineWidth',2);
+   line([leg3(1,1)-10,leg3(1,1)+10],[leg3(1,2),leg3(1,2)],'Color','k','LineWidth',2);
+   % platform
+   line(platform(:,1),platform(:,2),'LineWidth',2,'Color','b');
+   
+   axis equal;
    
    
    
