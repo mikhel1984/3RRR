@@ -38,9 +38,9 @@ alph(2)=robot.Links(6).twist;
 L(3)=robot.Links(9).length; 
 alph(3)=robot.Links(9).twist;
 
-F1=(x-B1(1)-a(1)*cos(O1)-L(1)*cos(alph(1)+phi))^2+(y-B1(2)-a(1)*sin(O1)-L(1)*sin(alph(1)+phi))^2-b(1)^2;
-F2=(x-B2(1)-a(2)*cos(O2)-L(2)*cos(alph(2)+phi))^2+(y-B2(2)-a(2)*sin(O2)-L(2)*sin(alph(2)+phi))^2-b(2)^2;
-F3=(x-B3(1)-a(3)*cos(O3)-L(3)*cos(alph(3)+phi))^2+(y-B3(2)-a(3)*sin(O3)-L(3)*sin(alph(3)+phi))^2-b(3)^2;
+F1=(x-B1(1)-a(1)*cos(O1)-L(1)*cos(alph(1)+phi-pi))^2+(y-B1(2)-a(1)*sin(O1)-L(1)*sin(alph(1)+phi-pi))^2-b(1)^2;
+F2=(x-B2(1)-a(2)*cos(O2)-L(2)*cos(alph(2)+phi-pi))^2+(y-B2(2)-a(2)*sin(O2)-L(2)*sin(alph(2)+phi-pi))^2-b(2)^2;
+F3=(x-B3(1)-a(3)*cos(O3)-L(3)*cos(alph(3)+phi-pi))^2+(y-B3(2)-a(3)*sin(O3)-L(3)*sin(alph(3)+phi-pi))^2-b(3)^2;
 
 
 % while true
@@ -52,7 +52,7 @@ F3=(x-B3(1)-a(3)*cos(O3)-L(3)*cos(alph(3)+phi))^2+(y-B3(2)-a(3)*sin(O3)-L(3)*sin
     J2=inv(J);
     F(x,y,phi,O1,O2,O3)=[F1;F2;F3];
     
-    VecF=F(x0,y0,0, q_Start(1), q_Start(4), q_Start(7))
+    VecF=F(x0,y0,phi0, q_Start(1), q_Start(4), q_Start(7))
     double(VecF)
 %     z=zold-J2*VecF;
     

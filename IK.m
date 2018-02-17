@@ -2,12 +2,12 @@ function q = IK(T,robot)
 % Inverse kinematics
 
    % joint coordinates at the platform
-   xA = robot.Links(3).length*cos(robot.Links(3).twist+robot.plate_angle);
-   yA = robot.Links(3).length*sin(robot.Links(3).twist+robot.plate_angle);
-   xB = robot.Links(6).length*cos(robot.Links(6).twist+robot.plate_angle);
-   yB = robot.Links(6).length*sin(robot.Links(6).twist+robot.plate_angle);
-   xC = robot.Links(9).length*cos(robot.Links(9).twist+robot.plate_angle);
-   yC = robot.Links(9).length*sin(robot.Links(9).twist+robot.plate_angle);
+   xA = robot.Links(3).length*cos(robot.Links(3).twist);
+   yA = robot.Links(3).length*sin(robot.Links(3).twist);
+   xB = robot.Links(6).length*cos(robot.Links(6).twist);
+   yB = robot.Links(6).length*sin(robot.Links(6).twist);
+   xC = robot.Links(9).length*cos(robot.Links(9).twist);
+   yC = robot.Links(9).length*sin(robot.Links(9).twist);
    
    % rotation + translation
    XA = T*[xA;yA;0;1];

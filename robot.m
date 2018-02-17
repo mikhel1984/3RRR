@@ -139,4 +139,3 @@ joint9.position = [20;150;0];    % not used
 r3_robot.Name = '3RRR VSA';
 r3_robot.Links = [link1 link2 link3 link4 link5 link6 link7 link8 link9];
 r3_robot.Joints = [joint1 joint2 joint3 joint4 joint5 joint6 joint7 joint8 joint9];
-r3_robot.plate_angle = 0;        % angle between coordinate frame of the plane and AB edge
