@@ -41,6 +41,6 @@ Jt=[a(1)*sin(q(2)), 0, 0;...
     0, a(2)*sin(q(4)), 0;...
     0, 0, a(3)*sin(q(6))];
 
-% J=inv(Jt)*Jz;
-J=inv(Jz)*Jt;
+J=inv(Jt)*Jz;
+% J=inv(Jz)*Jt;
 end

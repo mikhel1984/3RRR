@@ -1,4 +1,4 @@
-function T = FK(q,robot)
+function T = FK(q,robot,z)
 % Forward kinematics
 % q have 3 values
 
@@ -44,13 +44,15 @@ F(x,y,phi)=[F1;F2;F3];
 
 %  q=[0.4073, 1.3690, 0.7223];
 
-x0=(B1(1)+B2(1)+B3(1))/3;
-y0=(B1(2)+B2(2)+B3(2))/3;
-phi0=0;
+if nargin < 3
+    x0=(B1(1)+B2(1)+B3(1))/3;
+    y0=(B1(2)+B2(2)+B3(2))/3;
+    phi0=0;
+    z=[x0, y0, phi0]';
+end
 
-z=[x0, y0, phi0]';
-while true
-% for i=1:10
+% while true
+for i=1:100
     
     VecF=double(F(z(1),z(2),z(3)));
     Jac2=double(J2(z(1),z(2),z(3)));
