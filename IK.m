@@ -1,6 +1,9 @@
-function q = IK(T,robot)
+function q = IK(T,robot,conf)
 % Inverse kinematics
 
+   if nargin() == 2
+       conf = [1 1 -1];
+   end
    % joint coordinates at the platform
    xA = robot.Links(3).length*cos(robot.Links(3).twist);
    yA = robot.Links(3).length*sin(robot.Links(3).twist);
@@ -19,9 +22,9 @@ function q = IK(T,robot)
    dC = XC(1:2) - robot.Joints(7).position(1:2);
    % angles
    q = zeros(9,1);
-   [q(1),q(2)] = solve2link(robot.Links(1).length, robot.Links(2).length, dA(1), dA(2), 1);
-   [q(4),q(5)] = solve2link(robot.Links(4).length, robot.Links(5).length, dB(1), dB(2), 1);
-   [q(7),q(8)] = solve2link(robot.Links(7).length, robot.Links(8).length, dC(1), dC(2), -1);
+   [q(1),q(2)] = solve2link(robot.Links(1).length, robot.Links(2).length, dA(1), dA(2), conf(1));
+   [q(4),q(5)] = solve2link(robot.Links(4).length, robot.Links(5).length, dB(1), dB(2), conf(2));
+   [q(7),q(8)] = solve2link(robot.Links(7).length, robot.Links(8).length, dC(1), dC(2), conf(3));
    % last joints
    tA = T(:,4) - XA;
    tB = T(:,4) - XB;
