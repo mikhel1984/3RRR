@@ -1,5 +1,10 @@
 function q = IK(T,robot,conf)
 % Inverse kinematics
+%    T - desiced transformation matrix
+%    robot - system parameters
+%    conf - state configuration (optional)
+% Return:
+%    q - angle vector [leg1; leg2; leg3], each 'leg' is 3x1 vector
 
    if nargin() == 2
        conf = [1 1 -1];

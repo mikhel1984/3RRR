@@ -1,4 +1,8 @@
 function visualisation(q,robot)
+% Robot visualization for given state
+%   q - vector of angles
+%   robot - parameters
+
    leg1 = zeros(4,2); leg2 = zeros(4,2); leg3 = zeros(4,2);
    % base
    leg1(1,:) = robot.Joints(1).position(1:2)';
