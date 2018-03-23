@@ -12,7 +12,7 @@ function K = K_theta(n,robot)
    % link size (convert to meters)
    L = robot.Links(n).length * 1E-3;
    dex = robot.Links(n).diametr * 1E-3;
-   din = (robot.Links(n).diametr-robot.Links(n).thickness)*1E-3;
+   din = (robot.Links(n).diametr-2*robot.Links(n).thickness)*1E-3;
    
    % quill cylinder
    S = pi*(dex^2-din^2)/4;

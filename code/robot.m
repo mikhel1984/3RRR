@@ -19,15 +19,15 @@ link1.type = 'L';
 link1.length = 70; 
 link1.axis = [1 0 0];
 link1.twist = 0;
-link1.diametr = 12;
-link1.thickness = 4;
+link1.diametr = 10;
+link1.thickness = 3;
 
 link2.type = 'L';
 link2.length = 70;
 link2.axis = [1 0 0];
 link2.twist = 0;
-link2.diametr = 12;
-link2.thickness = 4;
+link2.diametr = 10;
+link2.thickness = 3;
 
 link3.type = 'P';
 link3.length = 30;
@@ -40,15 +40,15 @@ link4.type = 'L';
 link4.length = 70;
 link4.axis = [1 0 0];
 link4.twist = 0;
-link4.diametr = 12;
-link4.thickness = 4;
+link4.diametr = 10;
+link4.thickness = 3;
 
 link5.type = 'L';
 link5.length = 70;
 link5.axis = [1 0 0];
 link5.twist = 0;
-link5.diametr = 12;
-link5.thickness = 4;
+link5.diametr = 10;
+link5.thickness = 3;
 
 link6.type = 'P';
 link6.length = 30;
@@ -61,15 +61,15 @@ link7.type = 'L';
 link7.length = 70;
 link7.axis = [1 0 0];
 link7.twist = 0;
-link7.diametr = 12;
-link7.thickness = 4;
+link7.diametr = 10;
+link7.thickness = 3;
 
 link8.type = 'L';
 link8.length = 70;
 link8.axis = [1 0 0];
 link8.twist = 0;
-link8.diametr = 12;
-link8.thickness = 4;
+link8.diametr = 10;
+link8.thickness = 3;
 
 link9.type = 'P';
 link9.length = 30;
