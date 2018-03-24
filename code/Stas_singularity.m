@@ -6,10 +6,14 @@ robot;
 
 X = linspace(-50,200,250);
 Y = linspace(-50,200,250);
-PHI = linspace(-pi/3,pi/2,6);
+% PHI = linspace(-pi/3,pi/2,6);
+PHI = 0;
 
 WS = zeros(length(X), length(Y), length(PHI));
 %Singular = [];
+XYZ = 3; % 2 - Y or 3 - Z
+F = [0, 0, 0, 0, 0, 0]';
+F(XYZ) = 100;
 
 for i = 1:length(X)
     for j = 1:length(Y)
@@ -20,22 +24,34 @@ for i = 1:length(X)
             if ~isreal(q)
                 continue;
             end
-            q = [q(1:2),q(4:5),q(7:8)]';
-            J = Jacobian3RRR(q, r3_robot);
-            V = sqrt(det(J*J')); 
+%             q = [q(1:2),q(4:5),q(7:8)]';
+%             J = Jacobian3RRR(q, r3_robot);
+%             V = sqrt(det(J*J')); 
             %if V > 0.1
             %    Singular = [Singular; X(i),Y(j),PHI(k)];               
             %end
-            WS(i,j,k) = V;
+%             WS(i,j,k) = V;
+
+%             stiffness analysis
+            
+K1 = Kc_leg(q, 1, r3_robot);
+K2 = Kc_leg(q, 2, r3_robot);
+K3 = Kc_leg(q, 3, r3_robot);
+
+K_full =  Kc_full(K1,K2,K3,q,r3_robot);
+del = inv(K_full)*F;
+WS(i,j,k) =  sqrt(sum(del(1:3).^2));
+% WS(i,j,k) =  del(XYZ);
+% WS(i,j,k) =  find_max_del(K_full);
         end
     end
 end
 
-WS1 = log(WS);
+% WS1 = log(WS);
 
 for k = 1:length(PHI)
     h=figure();
-ws = WS1(:,:,k);
+ws = WS(:,:,k);
 hold on
 surf(ws,'EdgeColor','none');
 
@@ -45,7 +61,7 @@ plot3(robot.Joints(4).position(1)+50,robot.Joints(4).position(2)+50,0,'ok')
 plot3(robot.Joints(7).position(1)+50,robot.Joints(7).position(2)+50,0,'ok')
 
 T=Tx(70)*Ty(70)*Rz(PHI(k));
-q=IK(T,robot)
+q=IK(T,robot);
 
    leg1(1,:) = robot.Joints(1).position(1:2)'+50;
    leg2(1,:) = robot.Joints(4).position(1:2)'+50;

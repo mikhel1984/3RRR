@@ -26,3 +26,5 @@ K3 = Kc_leg(q, 3, r3_robot);
 F3 = K3*disp;
 del3 = K3 \ F3 - disp
 
+K_full =  Kc_full(K1,K2,K3,q,r3_robot)
+
