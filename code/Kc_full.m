@@ -23,9 +23,9 @@ function [K] = Kc_full(k1, k2, k3, q, robot)
    leg2(4,:) = leg2(3,:) + robot.Links(6).length*[cos(q(4)+q(5)+q(6)), sin(q(4)+q(5)+q(6))];
    leg3(4,:) = leg3(3,:) + robot.Links(9).length*[cos(q(7)+q(8)+q(9)), sin(q(7)+q(8)+q(9))];
    
-v1 = [leg1(4,:)-leg1(3,:) 0];
-v2 = [leg2(4,:)-leg2(3,:) 0];
-v3 = [leg3(4,:)-leg3(3,:) 0];
+v1 = [leg1(4,:)-leg1(3,:) 0]/1000;
+v2 = [leg2(4,:)-leg2(3,:) 0]/1000;
+v3 = [leg3(4,:)-leg3(3,:) 0]/1000;
 
 v1x = [0, -v1(3), v1(2);...
     v1(3), 0, -v1(1);...
